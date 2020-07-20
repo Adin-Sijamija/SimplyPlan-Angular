@@ -1,0 +1,13 @@
+<h3> Test clicka</h3>
+
+
+<br>
+<ul>
+    <li *ngFor="let row of data">
+        {{row.date}} {{row.temperatureC}} {{row.summary}}
+    </li>
+</ul>
+<br>
+
+
+ <button (click)="loadData()"> Test click</button>
