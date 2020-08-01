@@ -1,0 +1,48 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h2>Create a new project!</h2>
+    <br />
+    <form #heroFrom="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Project name:</label>
+        <input
+          class="form-control"
+          required
+          id="ProjectName"
+          placeholder="Project name"
+          type="text"
+          minlength="4"
+          [(ngModel)]="model.Name"
+          name="Name"
+          #Name="ngModel"
+        />
+        <div [hidden]="Name.valid || Name.pristine" class="alert alert-danger">
+          Name has to be atleast 4 charachters long
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Project description:</label>
+        <input
+          class="form-control"
+          required
+          id="ProjectDisc"
+          placeholder="Description"
+          type="text"
+          [(ngModel)]="model.Description"
+          name="Description"
+        />
+      </div>
+      <button
+        class="btn btn-success"
+        type="submit"
+        [disabled]="!heroFrom.form.valid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <h2>Form is being proccessed...</h2>
+  </div>
+</div>
+
